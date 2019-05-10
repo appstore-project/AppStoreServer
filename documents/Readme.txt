@@ -1,8 +1,5 @@
 # Created By: Erfan.Azamimanesh
 
-Infra:
-	- Oracle Database 11g Enterprise
-
 Used:
 	- Maven
 	- Spring Boot 2.1.4.RELEASE
