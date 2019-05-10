@@ -1,0 +1,1 @@
+insert into app_product (id, category, title, version) values (1, 'Game', 'Call of Duty', '4.2.0.1902');
