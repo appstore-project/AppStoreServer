@@ -1,4 +1,4 @@
-package edu.erm.appstoreserver;
+package edu.eam.appstoreserver.legacy;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -13,6 +13,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
 @RestController
 class AppProductController {
+//    private final String base_uri = "/api/v1";
     private final AppProductRepository repository;
     private final AppProductResourceAssembler assembler;
 
@@ -21,6 +22,17 @@ class AppProductController {
         this.repository = repository;
         this.assembler = assembler;
     }
+
+
+    @GetMapping(value="/apps/getAll", produces = "application/json; charset=UTF-8")
+    Resources<Resource<AppProduct>> getall(){
+        List<Resource<AppProduct>> AppProducts = repository.findAll().stream()
+                .map(assembler::toResource)
+                .collect(Collectors.toList());
+        return new Resources<>(AppProducts,
+                linkTo(methodOn(AppProductController.class).getall()).withSelfRel());
+    }
+
 
     //@GetMapping("/apps") 98.01.29; Erfan. Changed to below just for good seen in Browsers. (It works find by Test Tools)
     @GetMapping(value="/apps", produces = "application/json; charset=UTF-8")
@@ -50,6 +62,18 @@ class AppProductController {
         return repository.save(newAppProduct);
     }*/
 
+
+    @GetMapping(value="/apps/getAppInfo/{appCode}", produces = "application/json; charset=UTF-8")
+//    Resource<AppProduct> getone(@RequestParam("appCode") long app_code){
+    Resource<AppProduct> getone(@PathVariable Long appCode){
+            final long apid =1;
+        AppProduct AppProduct = repository.findById(apid)
+                .orElseThrow(()-> new AppProductNotFoundException(appCode));
+
+        return assembler.toResource(AppProduct);
+    }
+
+
     //@GetMapping("/apps/{id}") 98.01.29; Erfan. Changed to below just for good seen in Browsers. (It works find by Test Tools)
     @GetMapping(value="/apps/{id}", produces = "application/json; charset=UTF-8")
     Resource<AppProduct> one(@PathVariable Long id){
@@ -74,7 +98,7 @@ class AppProductController {
     ResponseEntity<?> replaceAppProduct(@RequestBody AppProduct newAppProduct, @PathVariable Long id) throws URISyntaxException {
         AppProduct updatedAppProduct = repository.findById(id)
                 .map(AppProduct -> {
-                    AppProduct.setTitle(newAppProduct.getTitle());
+                    //AppProduct.setTitle(newAppProduct.getTitle());
                     AppProduct.setVersion(newAppProduct.getVersion());
                     AppProduct.setCategory(newAppProduct.getCategory());
                     return repository.save(AppProduct);

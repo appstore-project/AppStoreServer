@@ -1,8 +1,8 @@
-package edu.erm.appstoreserver;
+package edu.eam.appstoreserver.legacy;
 
 class AppProductNotFoundException extends RuntimeException{
 
     AppProductNotFoundException(Long id) {
-        super("Could not find Application " + id);
+        super("Could not find app " + id);
     }
 }

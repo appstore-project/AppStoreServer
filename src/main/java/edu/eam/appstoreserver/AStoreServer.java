@@ -1,4 +1,4 @@
-package edu.erm.appstoreserver;
+package edu.eam.appstoreserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @SpringBootApplication
-public class AppstoreServiceApplication {
+public class AStoreServer {
 
     public static void main(String[] args) {
-        SpringApplication.run(AppstoreServiceApplication.class, args);
+        SpringApplication.run(AStoreServer.class, args);
     }
 
     // Erfan: Enable Cross-Origin Request Sharing

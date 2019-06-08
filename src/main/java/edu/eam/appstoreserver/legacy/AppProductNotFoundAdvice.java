@@ -1,4 +1,4 @@
-package edu.erm.appstoreserver;
+package edu.eam.appstoreserver.legacy;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

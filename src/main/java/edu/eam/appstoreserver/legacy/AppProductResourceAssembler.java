@@ -1,4 +1,4 @@
-package edu.erm.appstoreserver;
+package edu.eam.appstoreserver.legacy;
 
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceAssembler;

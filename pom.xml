@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.4.RELEASE</version>
+        <version>2.1.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>edu.erm</groupId>
+    <groupId>edu.eam</groupId>
     <artifactId>appstore-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>AppStore-Server</name>
@@ -43,12 +43,13 @@
             <artifactId>HikariCP</artifactId>
         </dependency>
 
-        <!-- 98.01.29 EAM: Making it RESTful-->
+        <!-- Erfan: Making it RESTful (add HATEOAS)-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
 
+        <!-- Erfan: avoid boilerplate codes -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -72,4 +73,14 @@
         </plugins>
     </build>
 
+    <!-- Erfan: for deployment -->
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>true</uniqueVersion>
+            <id>OnHost</id>
+            <name>On Host</name>
+            <url>file:///D_ONHOST/!EduProjects/AppStore</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
 </project>
