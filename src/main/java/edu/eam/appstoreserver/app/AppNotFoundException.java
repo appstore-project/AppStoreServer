@@ -1,4 +1,7 @@
 package edu.eam.appstoreserver.app;
 
-public class AppNotFoundException {
+class AppNotFoundException extends RuntimeException{
+    AppNotFoundException(Long id) {
+        super("Could not find app " + id);
+    }
 }
