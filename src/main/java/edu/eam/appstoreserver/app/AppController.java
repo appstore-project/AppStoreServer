@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class AppController {
     private final static String BASE_URI="/api/store";
@@ -18,4 +20,9 @@ public class AppController {
         return appRepository.findById(id).orElseThrow(()-> new AppNotFoundException(id));
     }
 
+
+    @GetMapping(value=BASE_URI+"/apps", produces = "application/json; charset=UTF-8")
+    List<App> all() {
+        return appRepository.findAll();
+    }
 }
