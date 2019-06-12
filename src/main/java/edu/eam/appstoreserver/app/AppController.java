@@ -20,7 +20,6 @@ public class AppController {
         return appRepository.findById(id).orElseThrow(()-> new AppNotFoundException(id));
     }
 
-
     @GetMapping(value=BASE_URI+"/apps", produces = "application/json; charset=UTF-8")
     List<App> all() {
         return appRepository.findAll();

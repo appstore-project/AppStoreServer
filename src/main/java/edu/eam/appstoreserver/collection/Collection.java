@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class Collection {
     @Id
     @Length(max=30)
-    private String identifier;
+    private String uid; // unique identifier
     private String title;
     private String apps;
 }
