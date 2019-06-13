@@ -1,4 +1,4 @@
-package edu.eam.appstoreserver.legacy;
+package edu.eam.appstoreserver._legacy;
 
 import java.net.URI;
 import java.net.URISyntaxException;

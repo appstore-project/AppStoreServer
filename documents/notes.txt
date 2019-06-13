@@ -1,0 +1,1 @@
+@CollectionTable(name = "Collection_Apps", joinColumns =  @JoinColumn(name = "id"), foreignKey = @ForeignKey(name = "FK_COLLECTION_ID"))

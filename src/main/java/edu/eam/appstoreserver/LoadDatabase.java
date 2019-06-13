@@ -1,6 +1,6 @@
 package edu.eam.appstoreserver;
 
-import edu.eam.appstoreserver.legacy.AppProductRepository;
+import edu.eam.appstoreserver._legacy.AppProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

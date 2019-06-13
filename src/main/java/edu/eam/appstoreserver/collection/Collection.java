@@ -1,17 +1,24 @@
 package edu.eam.appstoreserver.collection;
 
+import edu.eam.appstoreserver.app.App;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
+@SequenceGenerator(name="sgCollId", sequenceName = "seqCollId", initialValue = 1, allocationSize = 1)
+
 public class Collection {
-    @Id
-    @Length(max=30)
-    private String uid; // unique identifier
+    @Id @GeneratedValue(generator = "sgCollId")
+    private Integer id;
+    private Integer position;
+    @Length(max=100)
     private String title;
-    private String apps;
+    //@Length(max=500)
+    //private String description;
+    @ElementCollection(fetch = FetchType.LAZY)
+    private List<App> Apps;
 }

@@ -8,20 +8,21 @@ import java.util.List;
 
 @RestController
 public class AppController {
-    private final static String BASE_URI="/api/store";
-    private final AppRepository appRepository;
+    private final static String BASE_URI="/api/store/apps";
+    private final Apps apps;
 
-    AppController (AppRepository appRepository){
-        this.appRepository=appRepository;
+    AppController (Apps apps){
+        this.apps = apps;
     }
 
-    @GetMapping(value=BASE_URI+"/apps/{id}", produces = "application/json; charset=UTF-8")
-    App one(@PathVariable Long id){
-        return appRepository.findById(id).orElseThrow(()-> new AppNotFoundException(id));
-    }
-
-    @GetMapping(value=BASE_URI+"/apps", produces = "application/json; charset=UTF-8")
+    @GetMapping(value=BASE_URI, produces = "application/json; charset=UTF-8")
     List<App> all() {
-        return appRepository.findAll();
+        return apps.findAll();
     }
+
+    @GetMapping(value=BASE_URI+"/{id}", produces = "application/json; charset=UTF-8")
+    App one(@PathVariable Long id){
+        return apps.findById(id).orElseThrow(()-> new AppNotFoundException(id));
+    }
+
 }
