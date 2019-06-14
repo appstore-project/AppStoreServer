@@ -1,16 +1,11 @@
 package edu.eam.appstoreserver.file;
 
-import com.sun.deploy.util.ArrayUtil;
-import com.sun.xml.internal.bind.v2.model.util.ArrayInfoUtil;
-import jdk.nashorn.internal.runtime.JSType;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @RestController
@@ -27,14 +22,14 @@ public class FileBodyController {
         return files.findById(id).orElseThrow(() -> new RuntimeException());
     }
 
+    //TODO: Erfan; Solve MediaType HardCode
     @GetMapping(value=BASE_URI+"/{id}/content", produces = "image/png")
     public ResponseEntity<byte[]> getImage(@PathVariable Long id) throws IOException {
         FileBody file = files.findById(id).orElseThrow(() -> new RuntimeException());
-        byte[] bytes=file.fileContent;
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.IMAGE_PNG)
-                .body(bytes);
+                .body(file.fileContent);
     }
 
 }

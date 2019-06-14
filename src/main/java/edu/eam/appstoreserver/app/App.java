@@ -14,9 +14,7 @@ public class App {
     private Long id;
     private String title;
     private String category;
-    @Lob
-    @Column (columnDefinition = "BLOB")
-    private Byte[] thumbnail;
+    private Long thumbnailFileId;
     @Formula("(select nvl((Select round(sum(r.rate)/count(*),1) from TEST_RATE r where r.app_id=id), 0) from dual)")
     private Float rate;
 

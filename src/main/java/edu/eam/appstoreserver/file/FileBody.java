@@ -1,5 +1,6 @@
 package edu.eam.appstoreserver.file;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,10 +15,10 @@ public class FileBody {
     private Long id;
     private LocalDateTime uploadTime;
     //private String uploaderId;
+    //private String accessLevel;
     private String fileName;
     private String fileExt;
-    @Lob
-    @Column (columnDefinition = "BLOB")
-    //public Byte[] fileContent;
+    @Lob @Column (columnDefinition = "BLOB")
+    @JsonIgnore
     public byte[] fileContent;
 }
