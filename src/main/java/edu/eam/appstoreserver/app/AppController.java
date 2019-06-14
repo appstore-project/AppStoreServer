@@ -1,5 +1,6 @@
 package edu.eam.appstoreserver.app;
 
+import edu.eam.appstoreserver.NotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,7 @@ public class AppController {
 
     @GetMapping(value=BASE_URI+"/{id}", produces = "application/json; charset=UTF-8")
     App one(@PathVariable Long id){
-        return apps.findById(id).orElseThrow(()-> new AppNotFoundException(id));
+        return apps.findById(id).orElseThrow(()-> new NotFoundException(id));
     }
 
 }

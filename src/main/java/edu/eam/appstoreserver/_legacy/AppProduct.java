@@ -31,47 +31,45 @@ public class AppProduct {
 //    private String version;
 //    private String category;
 
-    AppProduct() {}
-
 //    AppProduct(String title, String version, String category) {
 //        this.title = title;
 //        this.version = version;
 //        this.category = category;
 //    }
-
-    AppProduct(
-        Long appCode,
-        String name,
-        String developer,
-        String rate,
-        String category,
-        Boolean isGame,
-        Integer installCount,
-        String size_mb,
-        String version,
-        String shamed,
-        Integer price,
-        Boolean inAppPurchase,
-        String descr,
-        String lastChanges,
-//        String access,
-        String comments
-    ) {
-        this.appCode = appCode;
-        this.name = name;
-        this.developer = developer;
-        this.rate = rate;
-        this.category = category;
-        this.isGame = isGame;
-        this.installCount = installCount;
-        this.size_mb = size_mb;
-        this.version = version;
-        this.shamed = shamed;
-        this.price = price;
-        this.inAppPurchase = inAppPurchase;
-        this.descr = descr;
-        this.lastChanges = lastChanges;
-//        this.access = access;
-        this.comments = comments;
-    }
+//
+//    AppProduct(
+//        Long appCode,
+//        String name,
+//        String developer,
+//        String rate,
+//        String category,
+//        Boolean isGame,
+//        Integer installCount,
+//        String size_mb,
+//        String version,
+//        String shamed,
+//        Integer price,
+//        Boolean inAppPurchase,
+//        String descr,
+//        String lastChanges,
+////        String access,
+//        String comments
+//    ) {
+//        this.appCode = appCode;
+//        this.name = name;
+//        this.developer = developer;
+//        this.rate = rate;
+//        this.category = category;
+//        this.isGame = isGame;
+//        this.installCount = installCount;
+//        this.size_mb = size_mb;
+//        this.version = version;
+//        this.shamed = shamed;
+//        this.price = price;
+//        this.inAppPurchase = inAppPurchase;
+//        this.descr = descr;
+//        this.lastChanges = lastChanges;
+////        this.access = access;
+//        this.comments = comments;
+//    }
 }

@@ -1,5 +1,6 @@
 package edu.eam.appstoreserver.collection;
 
+import edu.eam.appstoreserver.NotFoundException;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +23,8 @@ public class CollectionController {
     }
 
     @GetMapping(value=BASE_URI+"/{id}", produces = "application/json; charset=UTF-8")
-    Collection one(@PathVariable Integer id){
-        return rows.findById(id).orElseThrow(()-> new RuntimeException());
+    Collection one(@PathVariable Long id){
+        return rows.findById(id).orElseThrow(()-> new NotFoundException(id));
     }
 
 

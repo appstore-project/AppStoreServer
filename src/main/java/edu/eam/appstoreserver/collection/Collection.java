@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Collection {
     @Id @GeneratedValue(generator = "sgCollId")
-    private Integer id;
+    private Long id;
     private Integer position;
     @Length(max=100)
     private String title;

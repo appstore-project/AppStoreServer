@@ -15,6 +15,7 @@ public class App {
     private String title;
     private String category;
     private Long thumbnailFileId;
+    //TODO: Erfan; Change the Below test code to a true designed approach.
     @Formula("(select nvl((Select round(sum(r.rate)/count(*),1) from TEST_RATE r where r.app_id=id), 0) from dual)")
     private Float rate;
 
