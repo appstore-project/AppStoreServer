@@ -10,9 +10,9 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 @Component
 class AppProductResourceAssembler implements ResourceAssembler<AppProduct, Resource<AppProduct>> {
     @Override
-    public Resource<AppProduct> toResource(AppProduct AppProduct) {
-        return new Resource<>(AppProduct,
-                linkTo(methodOn(AppProductController.class).one(AppProduct.getId())).withSelfRel(),
+    public Resource<AppProduct> toResource(AppProduct appProduct) {
+        return new Resource<>(appProduct,
+                linkTo(methodOn(AppProductController.class).one(appProduct.getId())).withSelfRel(),
                 linkTo(methodOn(AppProductController.class).all()).withRel("AppProducts"));
     }
 }

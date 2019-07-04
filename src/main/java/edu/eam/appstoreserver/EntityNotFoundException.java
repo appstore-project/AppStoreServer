@@ -1,7 +1,7 @@
 package edu.eam.appstoreserver;
 
-public class NotFoundException extends RuntimeException{
-    public NotFoundException(Long id) {
+public class EntityNotFoundException extends RuntimeException{
+    public EntityNotFoundException(Long id) {
         super("Could not find resource with id " + id);
     }
 }

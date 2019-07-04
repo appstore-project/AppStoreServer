@@ -1,6 +1,6 @@
 package edu.eam.appstoreserver.file;
 
-import edu.eam.appstoreserver.NotFoundException;
+import edu.eam.appstoreserver.EntityNotFoundException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,13 +20,13 @@ public class FileBodyController {
 
     @GetMapping(value=BASE_URI+"/{id}", produces = "application/json; charset=UTF-8")
     FileBody one(@PathVariable Long id){
-        return files.findById(id).orElseThrow(() -> new NotFoundException(id));
+        return files.findById(id).orElseThrow(() -> new EntityNotFoundException(id));
     }
 
     //TODO: Erfan; Solve MediaType HardCode
     @GetMapping(value=BASE_URI+"/{id}/content", produces = "image/png")
     public ResponseEntity<byte[]> getImage(@PathVariable Long id) throws IOException {
-        FileBody file = files.findById(id).orElseThrow(() -> new NotFoundException(id));
+        FileBody file = files.findById(id).orElseThrow(() -> new EntityNotFoundException(id));
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.IMAGE_PNG)

@@ -35,7 +35,7 @@ class AppProductController {
 
 
     //@GetMapping("/apps") 98.01.29; Erfan. Changed to below just for good seen in Browsers. (It works find by Test Tools)
-    @GetMapping(value="/apps", produces = "application/json; charset=UTF-8")
+    @GetMapping(value="/apps", produces = "application/hal+json; charset=UTF-8")
     Resources<Resource<AppProduct>> all(){
         List<Resource<AppProduct>> AppProducts = repository.findAll().stream()
                 .map(assembler::toResource)

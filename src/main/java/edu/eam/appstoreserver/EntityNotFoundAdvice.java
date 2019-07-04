@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @ControllerAdvice
-public class NotFoundAdvice {
+public class EntityNotFoundAdvice {
     @ResponseBody
-    @ExceptionHandler(NotFoundException.class)
-    String notFoundMessage(NotFoundException ex) {
+    @ExceptionHandler(EntityNotFoundException.class)
+    String notFoundMessage(EntityNotFoundException ex) {
         return ex.getMessage();
     }
 
