@@ -66,8 +66,7 @@ class AppProductController {
     @GetMapping(value="/apps/getAppInfo/{appCode}", produces = "application/json; charset=UTF-8")
 //    Resource<AppProduct> getone(@RequestParam("appCode") long app_code){
     Resource<AppProduct> getone(@PathVariable Long appCode){
-            final long apid =1;
-        AppProduct AppProduct = repository.findById(apid)
+        AppProduct AppProduct = repository.findByAppCode(appCode)
                 .orElseThrow(()-> new AppProductNotFoundException(appCode));
 
         return assembler.toResource(AppProduct);
