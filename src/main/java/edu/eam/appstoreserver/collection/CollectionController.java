@@ -6,6 +6,7 @@ import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,8 +16,8 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
+@RequestMapping("${appstore-api.base-url}")
 public class CollectionController {
-    private final static String BASE_URI="/api/store/collections";
     private final Collections rows;
     private final CollectionResourceAssembler assembler;
 
@@ -25,7 +26,7 @@ public class CollectionController {
         this.assembler = assembler;
     }
 
-    @GetMapping(value=BASE_URI, produces = "application/json; charset=UTF-8")
+    @GetMapping(value="/collections", produces = "application/json; charset=UTF-8")
     Resources<Resource<Collection>> all() {
         List<Resource<Collection>> collections =
                 rows.findAll(Sort.by("position"))
@@ -39,7 +40,7 @@ public class CollectionController {
         );
     }
 
-    @GetMapping(value=BASE_URI+"/{id}", produces = "application/json; charset=UTF-8")
+    @GetMapping(value="/collections/{id}", produces = "application/json; charset=UTF-8")
     Resource<Collection> one(@PathVariable Long id){
         Collection row = rows.findById(id).orElseThrow(()-> new EntityNotFoundException(id));
         return assembler.toResource(row);
