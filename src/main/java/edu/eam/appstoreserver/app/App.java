@@ -13,7 +13,9 @@ public class App {
     @Id @GeneratedValue(generator = "sgAppId")
     private Long id;
     private String title;
-    @ManyToOne @JoinColumn
+
+    @ManyToOne
+    @JoinColumn (foreignKey = @ForeignKey(name = "fk_app_category"))
     private ApsCategory category;
 
     private Long thumbnailFileId;

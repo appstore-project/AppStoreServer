@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
     private final PasswordEncoder bCryptPassEncoder;
-    private final AppUsersRepo appUsersRepoRepo;
+    private final ApsUsersRepo apsUsersRepoRepo;
 
-    public UserController(AppUsersRepo appUsersRepoRepo, PasswordEncoder bCryptPassEncoder) {
+    public UserController(ApsUsersRepo apsUsersRepoRepo, PasswordEncoder bCryptPassEncoder) {
         this.bCryptPassEncoder = bCryptPassEncoder;
-        this.appUsersRepoRepo = appUsersRepoRepo;
+        this.apsUsersRepoRepo = apsUsersRepoRepo;
     }
 
     @PostMapping("/register")
-    public void signUp(@RequestBody AppUser appUser) {
-        appUser.setPassword(bCryptPassEncoder.encode(appUser.getPassword()));
-        appUsersRepoRepo.save(appUser);
+    public void signUp(@RequestBody ApsUser apsUser) {
+        apsUser.setPassword(bCryptPassEncoder.encode(apsUser.getPassword()));
+        apsUsersRepoRepo.save(apsUser);
     }
 }

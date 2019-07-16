@@ -1,5 +1,6 @@
 package edu.eam.appstoreserver.category;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.eam.appstoreserver.app.App;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,19 +10,19 @@ import java.util.Set;
 
 @Data
 @Entity
-@EqualsAndHashCode(exclude = "apps, children")
 public class ApsCategory {
-    @Id @GeneratedValue
-    private Integer id;
-    private String Name;
+    @Id private String Name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional=true)
-    @JoinColumn
+    @JoinColumn(foreignKey = @ForeignKey(name = "sk_category"))
     private ApsCategory parent;
 
-    @OneToMany (mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<App> apps;
+//    @EqualsAndHashCode.Exclude
+//    @OneToMany (mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private Set<App> apps;
 
+    @JsonIgnore
+    @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy="parent", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval=true)
     private Set<ApsCategory> children;
 
