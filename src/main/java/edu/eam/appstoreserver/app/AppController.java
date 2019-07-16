@@ -1,6 +1,7 @@
 package edu.eam.appstoreserver.app;
 
 import edu.eam.appstoreserver.EntityNotFoundException;
+import edu.eam.appstoreserver.AStoreConfig;
 import org.springframework.hateoas.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("${appstore-api.base-url}")
+@RequestMapping(AStoreConfig.apiBaseURL)
 public class AppController {
     private final Apps apps;
     private final AppResourceAssembler assembler;

@@ -1,5 +1,6 @@
 package edu.eam.appstoreserver.collection;
 
+import edu.eam.appstoreserver.AStoreConfig;
 import edu.eam.appstoreserver.EntityNotFoundException;
 import org.springframework.data.domain.Sort;
 import org.springframework.hateoas.Resource;
@@ -16,7 +17,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("${appstore-api.base-url}")
+@RequestMapping(AStoreConfig.apiBaseURL)
 public class CollectionController {
     private final Collections rows;
     private final CollectionResourceAssembler assembler;

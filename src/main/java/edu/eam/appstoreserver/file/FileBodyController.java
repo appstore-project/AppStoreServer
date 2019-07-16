@@ -1,5 +1,6 @@
 package edu.eam.appstoreserver.file;
 
+import edu.eam.appstoreserver.AStoreConfig;
 import edu.eam.appstoreserver.EntityNotFoundException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("${appstore-api.base-url}")
+@RequestMapping(AStoreConfig.apiBaseURL)
 public class FileBodyController {
     private final FileBodies files;
 
