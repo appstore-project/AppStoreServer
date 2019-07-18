@@ -10,7 +10,7 @@ import javax.persistence.*;
 @SequenceGenerator(name="sgUserId", sequenceName = "seqUserId", initialValue = 1, allocationSize = 1)
 public class ApsUser {
     @Id @GeneratedValue(generator = "sgUserId")
-    private Long userId;
+    private Long Id;
     @Column(unique = true)
     private String username;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

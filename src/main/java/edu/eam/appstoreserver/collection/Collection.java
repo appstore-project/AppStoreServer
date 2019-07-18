@@ -1,5 +1,6 @@
 package edu.eam.appstoreserver.collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.eam.appstoreserver.app.App;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -20,5 +21,6 @@ public class Collection {
     //@Length(max=500)
     //private String description;
     @ElementCollection(fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<App> Apps;
 }

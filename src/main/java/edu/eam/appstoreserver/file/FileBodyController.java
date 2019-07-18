@@ -27,7 +27,7 @@ public class FileBodyController {
 
     //TODO: Erfan; Solve MediaType HardCode
     @GetMapping(value="/files/{id}/content", produces = "image/png")
-    public ResponseEntity<byte[]> getImage(@PathVariable Long id) throws IOException {
+    public ResponseEntity<byte[]> getImage(@PathVariable Long id){
         FileBody file = files.findById(id).orElseThrow(() -> new EntityNotFoundException(id));
         return ResponseEntity
                 .ok()
