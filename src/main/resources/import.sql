@@ -15,15 +15,15 @@ insert into aps_category(id, name) values (5, 'Shopping');
 insert into aps_developer(id, title) values (seq_developer_id.nextval, 'DebugSG');
 insert into aps_developer(id, title) values (seq_developer_id.nextval, 'Activision Publishing, Inc');
 insert into aps_developer(id, title) values (seq_developer_id.nextval, 'Rooftop Group');
-insert into aps_developer(id, title) values (seq_developer_id.nextval, 'DivarCo');
-insert into aps_developer(id, title) values (seq_developer_id.nextval, 'SnappCo');
+insert into aps_developer(id, title) values (seq_developer_id.nextval, 'پدیدار');
+insert into aps_developer(id, title) values (seq_developer_id.nextval, 'اسنپ کو');
 
 
 insert into app (id, title, icon_File_Id, category_id, developer_id) values (seq_app_id.nextval, 'Speed Test', 4, 1, 1);
 insert into app (id, title, icon_File_Id, category_id, developer_id) values (seq_app_id.nextval, 'Call of Duty', 1, 2, 2);
 insert into app (id, title, icon_File_Id, category_id, developer_id) values (seq_app_id.nextval, 'Star Wars', 5, 2, 3);
-insert into app (id, title, icon_File_Id, category_id, developer_id) values (seq_app_id.nextval, 'Divar', 2, 5, 4);
-insert into app (id, title, icon_File_Id, category_id, developer_id) values (seq_app_id.nextval, 'Snapp', 3, 3, 5);
+insert into app (id, title, icon_File_Id, category_id, developer_id) values (seq_app_id.nextval, 'دیوار', 2, 5, 4);
+insert into app (id, title, icon_File_Id, category_id, developer_id) values (seq_app_id.nextval, 'اسنپ', 3, 3, 5);
 
 insert into Collection(id, position, title) values (seq_coll_id.nextval, 2, 'Top New Games');
 insert into Collection_Apps(collection_id, apps_id) values (seq_coll_id.currval, 2);
