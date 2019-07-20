@@ -42,4 +42,14 @@ public class AppController {
         return assembler.toResource(app);
     }
 
+
+    @GetMapping(value="/apps/collection/{colId}", produces = "application/json; charset=UTF-8")
+    public Resources<Resource<App>> appOfCollection(@PathVariable Long colId) {
+        List<App> appLs = apps.findMemberOfCollection(colId);
+        List<Resource<App>> appList = appLs.stream()
+                .map(assembler::toResource)
+                .collect(Collectors.toList());
+        return new Resources<>(appList, linkTo(methodOn(AppController.class).all()).withSelfRel());
+
+    }
 }

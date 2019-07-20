@@ -26,7 +26,10 @@ public class CollectionResourceAssembler implements ResourceAssembler<Collection
         return new Resource<>(
                 collection,
                 linkTo(methodOn(CollectionController.class).one(collection.getId())).withSelfRel(),
-                linkTo(methodOn(CollectionController.class).all()).withRel("rows")
+//                linkTo(methodOn(CollectionController.class).all()).withRel("rows")
+                linkTo(methodOn(AppController.class).appOfCollection(collection.getId())).withRel("rowApps")
                 );
     }
 }
+
+//linkTo(methodOn(FileBodyController.class).getImage(app.getIconFileId())).withRel("icon")

@@ -10,8 +10,9 @@ import java.util.Set;
 
 @Data
 @Entity
+@SequenceGenerator(name="sgCategory", sequenceName = "seqCategory", initialValue = 1, allocationSize = 1)
 public class ApsCategory {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(generator = "sgCategory")
     private Integer id;
     private String name;
 

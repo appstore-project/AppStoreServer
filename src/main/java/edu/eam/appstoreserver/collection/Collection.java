@@ -1,12 +1,14 @@
 package edu.eam.appstoreserver.collection;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import edu.eam.appstoreserver.app.App;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -20,7 +22,14 @@ public class Collection {
     private String title;
     //@Length(max=500)
     //private String description;
-    @ElementCollection(fetch = FetchType.LAZY)
-    @JsonIgnore
-    private List<App> Apps;
+
+//    @JsonManagedReference
+//    @ManyToMany()
+//    @JoinTable(
+//            name = "collection_apps",
+//            joinColumns = @JoinColumn(name = "collection_id"),
+//            inverseJoinColumns = @JoinColumn(name = "app_id"))
+//    private Set<App> memberApps;
 }
+
+

@@ -1,6 +1,7 @@
-package edu.eam.appstoreserver.app;
+package edu.eam.appstoreserver.appreview;
 
 import edu.eam.appstoreserver.account.ApsUser;
+import edu.eam.appstoreserver.app.App;
 import lombok.Data;
 
 import javax.persistence.*;
