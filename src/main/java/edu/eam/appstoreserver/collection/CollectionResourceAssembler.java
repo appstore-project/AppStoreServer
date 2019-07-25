@@ -32,4 +32,4 @@ public class CollectionResourceAssembler implements ResourceAssembler<Collection
     }
 }
 
-//linkTo(methodOn(FileBodyController.class).getImage(app.getIconFileId())).withRel("icon")
+//linkTo(methodOn(FileBodyController.class).getFile(app.getIconFileId())).withRel("icon")

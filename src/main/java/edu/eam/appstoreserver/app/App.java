@@ -54,6 +54,10 @@ public class App {
     @Length(max=50)
     private String verion;
 
+    @Digits(integer = 10, fraction = 0)
+    @Column(columnDefinition = "number(10) default 0")
+    private BigDecimal price;
+
     @Length(max=3000)
     private String decription;
 

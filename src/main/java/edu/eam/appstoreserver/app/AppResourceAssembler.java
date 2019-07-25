@@ -1,6 +1,5 @@
 package edu.eam.appstoreserver.app;
 
-import edu.eam.appstoreserver.appreview.ApsAppComment;
 import edu.eam.appstoreserver.appreview.ApsAppReviewController;
 import edu.eam.appstoreserver.file.FileBodyController;
 import org.springframework.hateoas.Resource;
@@ -20,7 +19,7 @@ class AppResourceAssembler implements ResourceAssembler<App, Resource<App>> {
                 app,
                 linkTo(methodOn(AppController.class).one(app.getId())).withSelfRel(),
                 linkTo(methodOn(ApsAppReviewController.class).getCommentsOfApp(app.getId())).withRel("appComments"),
-                linkTo(methodOn(FileBodyController.class).getImage(app.getIconFileId())).withRel("icon")
+                linkTo(methodOn(FileBodyController.class).getFile(app.getIconFileId())).withRel("icon")
                 //Todo: Erfan: remove this link
                 //linkTo(methodOn(AppController.class).all()).withRel("apps")
 

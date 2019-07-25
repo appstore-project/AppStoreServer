@@ -10,14 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping(AStoreConfig.apiBaseURL)
 public class FileBodyController {
     private final FileBodies files;
+    private final ApsImageRepo imageRepo;
 
-    FileBodyController(FileBodies files){
+    FileBodyController(FileBodies files, ApsImageRepo imageRepo){
         this.files = files;
+        this.imageRepo = imageRepo;
     }
 
     @GetMapping(value="/files/{id}", produces = "application/json; charset=UTF-8")
@@ -27,7 +30,7 @@ public class FileBodyController {
 
     //TODO: Erfan; Solve MediaType HardCode
     @GetMapping(value="/files/{id}/content", produces = "image/png")
-    public ResponseEntity<byte[]> getImage(@PathVariable Long id){
+    public ResponseEntity<byte[]> getFile(@PathVariable Long id){
         FileBody file = files.findById(id).orElseThrow(() -> new EntityNotFoundException(id));
         return ResponseEntity
                 .ok()
@@ -35,4 +38,17 @@ public class FileBodyController {
                 .body(file.fileContent);
     }
 
+    @GetMapping(value="/images/app/{appId}", produces = "application/json; charset=UTF-8")
+    public List<ApsAppImages> getImageList(@PathVariable Long appId) {
+        return imageRepo.findByAppId(appId);
+    }
+
+    @GetMapping(value="/images/{id}/content", produces = "image/png")
+    public ResponseEntity<byte[]> getImage(@PathVariable Long id){
+        ApsAppImages image = imageRepo.findById(id).orElseThrow(() -> new EntityNotFoundException(id));
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_PNG)
+                .body(image.fileContent);
+    }
 }
